@@ -1,13 +1,14 @@
-import { SearchBox } from "../components";
-import { useFetch } from "../utils";
+import { SearchBox, Trending } from "../components";
 
 const LandingPage = () => {
-  const { data } = useFetch("/");
-  console.log(data);
+  // const { data } = useFetch("/");
+  // console.log(data);
   return (
-    <section className="flex flex-col ml-4 mx-auto">
+    <section className="flex flex-col mx-auto ml-2 mr-2 md:mr-4 bg-amber-400">
       <SearchBox placeholder={"Search for movies or TV series"} />
-      <div>LandingPage</div>
+      <section>
+        <Trending />
+      </section>
     </section>
   );
 };
