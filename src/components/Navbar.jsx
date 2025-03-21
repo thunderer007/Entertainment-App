@@ -12,21 +12,21 @@ const Navbar = () => {
   return (
     <>
       {/* SIDEBAR */}
-      <div className="hidden md:flex flex-col h-[70vh] w-18 bg-green-300 items-center gap-y-4 text-center md:ml-4 rounded-lg">
+      <div className="hidden md:flex flex-col h-[70vh] w-18 bg-[#161d2f] items-center gap-y-4 text-center md:ml-4 rounded-lg">
         <div className="mb-8 mt-4">
-          <ClapperboardIcon size={28} />
+          <ClapperboardIcon size={28} color="#fff" />
         </div>
         <Link to="/">
-          <LayoutGridIcon />
+          <LayoutGridIcon color="#fff" />
         </Link>
         <Link to="/search">
-          <BinocularsIcon />
+          <BinocularsIcon color="#fff" />
         </Link>
         <Link to="/series">
-          <FilmIcon />
+          <FilmIcon color="#fff" />
         </Link>
         <Link to="/bookmark">
-          <BookmarkIcon />
+          <BookmarkIcon color="#fff" />
         </Link>
       </div>
 

@@ -3,14 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import { MovieDesc } from "./index";
-import { BookmarkIcon } from "lucide-react";
+import { BookmarkPlusIcon } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { addToBookmark } from "../features/bookmark/bookmarkSlice";
 
 const Trending = () => {
   const { data: movies, isError } = useFetch(`/trending/all/day`);
-  //   console.log(movies.results);
+  const dispatch = useDispatch();
   return (
     <div>
-      <h1>Trending</h1>
+      <h1 className="text-2xl tracking-wider text-white mb-4">Trending</h1>
       {isError && <h1>Something went wrong</h1>}
       <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper">
         {movies?.results?.map((movie) => {
@@ -28,8 +30,11 @@ const Trending = () => {
               <div className="absolute bottom-10 left-4">
                 <MovieDesc {...movie} />
               </div>
-              <span className="absolute top-5 right-6">
-                <BookmarkIcon />
+              <span
+                className="absolute top-5 right-6 cursor-pointer"
+                onClick={() => dispatch(addToBookmark(movie))}
+              >
+                <BookmarkPlusIcon color="#fff" />
               </span>
             </SwiperSlide>
           );

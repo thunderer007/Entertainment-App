@@ -10,11 +10,13 @@ const customFetch = axios.create({
 
 export const useFetch = (url) => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["movies"],
+    queryKey: ["movies", url],
     queryFn: async () => {
       const response = await customFetch.get(url);
       return response.data;
     },
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
   });
   return { data, isLoading, isError };
 };
