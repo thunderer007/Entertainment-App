@@ -6,10 +6,17 @@ import { MovieDesc } from "./index";
 import { BookmarkPlusIcon } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { addToBookmark } from "../features/bookmark/bookmarkSlice";
+import { toast } from "react-toastify";
 
 const Trending = () => {
   const { data: movies, isError } = useFetch(`/trending/all/day`);
   const dispatch = useDispatch();
+  const bookmarkAdded = (movie) => {
+    dispatch(addToBookmark(movie));
+    toast.success(`${movie.name || movie.title} added to bookmarks`, {
+      position: "top-right",
+    });
+  };
   return (
     <div>
       <h1 className="text-2xl tracking-wider text-white mb-4">Trending</h1>
@@ -32,7 +39,7 @@ const Trending = () => {
               </div>
               <span
                 className="absolute top-5 right-6 cursor-pointer"
-                onClick={() => dispatch(addToBookmark(movie))}
+                onClick={() => bookmarkAdded(movie)}
               >
                 <BookmarkPlusIcon color="#fff" />
               </span>

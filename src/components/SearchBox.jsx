@@ -1,4 +1,4 @@
-const SearchBox = ({ placeholder }) => {
+const SearchBox = ({ placeholder, value, onChange }) => {
   return (
     <form className="mt-4 mb-4">
       <label className="input">
@@ -18,7 +18,13 @@ const SearchBox = ({ placeholder }) => {
             <path d="m21 21-4.3-4.3"></path>
           </g>
         </svg>
-        <input type="search" className="grow w-100" placeholder={placeholder} />
+        <input
+          type="search"
+          className="grow w-100"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
       </label>
     </form>
   );

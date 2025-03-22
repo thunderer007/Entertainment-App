@@ -10,7 +10,7 @@ const initialState = {
       return storedBookmarks ? JSON.parse(storedBookmarks) : [];
     } catch (error) {
       console.error("Failed to parse bookmarks from localStorage:", error);
-      return []; // Fallback to empty array if parsing fails
+      return [];
     }
   })(),
 };
@@ -32,8 +32,15 @@ const bookmarkSlice = createSlice({
         localStorage.setItem("bookmarks", JSON.stringify([...state.bookmarks]));
       }
     },
+    removeFromBookmark: (state, action) => {
+      const item = action.payload;
+      state.bookmarks = state.bookmarks.filter(
+        (bookmark) => bookmark.id !== item.id
+      );
+      localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+    },
   },
 });
 
 export default bookmarkSlice.reducer;
-export const { addToBookmark } = bookmarkSlice.actions;
+export const { addToBookmark, removeFromBookmark } = bookmarkSlice.actions;
