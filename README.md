@@ -49,10 +49,10 @@ npm run dev
 
 📸 Screenshots
 
-![homepage](assets/screenshot1.png)
-![empty bookmark page](assets/screenshot2.png)
-![bookmarking movie](assets/screenshot3.png)
-![filled bookmark page](assets/screenshot4.png)
+![homepage](src/assets/screenshot1.png)
+![empty bookmark page](src/assets/screenshot2.png)
+![bookmarking movie](src/assets/screenshot3.png)
+![filled bookmark page](src/assets/screenshot4.png)
 
 🔥 How to Use
 
