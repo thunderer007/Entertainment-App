@@ -31,22 +31,22 @@ const Navbar = () => {
       </div>
 
       {/* NAVBAR */}
-      <div className="md:hidden bg-green-300 p-4">
+      <div className="md:hidden  bg-[#161d2f] p-4">
         <div className="w-full flex justify-between">
           <div>
-            <ClapperboardIcon size={28} />
+            <ClapperboardIcon size={28} color="#fff" />
           </div>
           <Link to="/">
-            <LayoutGridIcon />
+            <LayoutGridIcon color="#fff" />
           </Link>
           <Link to="/search">
-            <BinocularsIcon />
+            <BinocularsIcon color="#fff" />
           </Link>
           <Link to="/series">
-            <FilmIcon />
+            <FilmIcon color="#fff" />
           </Link>
           <Link to="/bookmark">
-            <BookmarkIcon />
+            <BookmarkIcon color="#fff" />
           </Link>
         </div>
       </div>
